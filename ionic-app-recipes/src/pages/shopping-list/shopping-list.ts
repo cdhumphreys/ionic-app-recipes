@@ -9,7 +9,7 @@ import { ShoppingListService } from '../../services/shopping-list.service';
   templateUrl: 'shopping-list.html'
 })
 
-export class ShoppingListPage {
+export class ShoppingListPage implements OnInit {
   shoppingListItems: Ingredient[] = [];
   constructor(private shoppingListService: ShoppingListService) {}
 
