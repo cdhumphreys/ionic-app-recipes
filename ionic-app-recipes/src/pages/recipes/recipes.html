@@ -22,5 +22,15 @@
 
 
 <ion-content padding>
+  <ion-list *ngFor="let recipe of recipes; let i = index">
+    <ion-card ion-item (click)="onLoadRecipe(recipe, i)">
+      <ion-card-header padding>
+        {{recipe.title}}
+      </ion-card-header>
+      <ion-card-content padding>
+        {{recipe.description}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 
 </ion-content>

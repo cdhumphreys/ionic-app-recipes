@@ -19,7 +19,7 @@
       <ion-item>
         <ion-label fixed>Ingredient</ion-label>
         <ion-input
-          name="ingredientName"
+          name="name"
           type="text"
           placeholder="E.g. Milk, Bread, Eggs"
           ngModel
@@ -49,7 +49,7 @@
       <ion-item>
         <ion-row>
           <ion-col col-6>
-            <h3 text-left>{{ item.ingredientName }}</h3>
+            <h3 text-left>{{ item.name }}</h3>
           </ion-col>
           <ion-col col-6>
             <h3 text-right>({{ item.quantity }})</h3>

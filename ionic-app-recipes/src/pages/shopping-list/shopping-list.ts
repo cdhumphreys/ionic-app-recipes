@@ -18,8 +18,7 @@ export class ShoppingListPage implements OnInit {
   }
 
   onAddItem(form: NgForm) {
-    console.log(form);
-    this.shoppingListService.addIngredient(form.value.ingredientName, form.value.quantity);
+    this.shoppingListService.addIngredient(form.value.name, form.value.quantity);
     form.reset();
     this.loadItems();
   }
