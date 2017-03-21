@@ -110,8 +110,8 @@ export class EditRecipePage implements OnInit {
     if (values.ingredients.length > 0) {
       ingredients = values.ingredients.map((ingredient) => {
         return {
-          name: ingredient,
-          quantity: 1
+          name: ingredient.name,
+          quantity: ingredient.quantity
         };
       });
     }
@@ -133,6 +133,10 @@ export class EditRecipePage implements OnInit {
           {
             name: 'name',
             placeholder: 'Name'
+          },
+          {
+            name: 'quantity',
+            placeholder: '#'
           }
         ],
         buttons: [
@@ -148,7 +152,10 @@ export class EditRecipePage implements OnInit {
                 toast.present();
                 return;
               }
-              (<FormArray>this.recipeForm.get('ingredients')).push(new FormControl(data.name, Validators.required));
+              (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
+                name: new FormControl(data.name, Validators.required),
+                quantity: new FormControl(data.quantity, Validators.required)
+              }));
 
               const toast = this.toastController.create({
                 message: 'New ingredient added!',

@@ -27,6 +27,8 @@ export class RecipePage implements OnInit {
   ngOnInit() {
     this.recipe = this.navParams.get('recipe');
     this.index = this.navParams.get('index');
+
+    console.log(this.recipe);
   }
 
   onAddToShopping() {
@@ -41,13 +43,7 @@ export class RecipePage implements OnInit {
   }
 
   onDeleteRecipe(recipe: Recipe) {
-    const recipes = this.recipesService.getRecipes();
-
-    const recipeIndex = recipes.findIndex((currentRecipe) => {
-      if (currentRecipe.title == recipe.title) {
-        return true;
-      }
-    });
-    this.recipesService.removeRecipe(recipeIndex);
+    this.recipesService.removeRecipe(this.index);
+    this.navCtrl.popToRoot();
   }
 }

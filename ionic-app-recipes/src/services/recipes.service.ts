@@ -24,7 +24,7 @@ export class RecipesService {
   }
 
   removeRecipe(index: number) {
-    this.recipes[index].splice(index, 1);
+    this.recipes.splice(index, 1);
   }
 
   getRecipes() {

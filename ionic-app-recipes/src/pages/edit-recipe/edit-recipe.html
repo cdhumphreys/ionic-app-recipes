@@ -32,11 +32,25 @@
     block
     (click)="onManageIngredients()">Manage Ingredients</button>
   <ion-list inset formArrayName="ingredients">
-    <ion-item
+    <div
     *ngFor="let igControl of recipeForm.get('ingredients').controls; let i = index">
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text" [formControlName]="i"></ion-input>
-    </ion-item>
+      <ion-list [formGroupName]="i">
+        <ion-row>
+           <ion-col>
+             <ion-item>
+               <ion-label floating>Name</ion-label>
+               <ion-input type="text" formControlName="name" [value]="igControl.controls['name'].value"></ion-input>
+             </ion-item>
+           </ion-col>
+           <ion-col>
+             <ion-item>
+               <ion-label floating>Quantity</ion-label>
+               <ion-input type="number" formControlName="quantity" [value]="igControl.controls['quantity'].value"></ion-input>
+             </ion-item>
+           </ion-col>
+         </ion-row>
+      </ion-list>
+    </div>
   </ion-list>
   <button
   [color]="mode == 'New' ? 'primary' : 'secondary'"
